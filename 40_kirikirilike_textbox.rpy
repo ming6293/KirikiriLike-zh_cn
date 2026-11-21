@@ -1,8 +1,8 @@
-# KirikiriLike - optional translucent-gradient textbox template
+# KirikiriLike - 可选的半透明渐变文本框模板
 #
-# This changes the standard window/namebox/say styles used by Ren'Py's stock
-# say screen. It deliberately does not replace screen say, so SideImage(),
-# custom quick menus, and normal dialogue behavior remain owned by the project.
+# 这会修改 Ren'Py 自带 say 界面使用的标准 window/namebox/say 样式。
+# 它刻意不替换 screen say，因此 SideImage()、自定义快捷菜单和正常对话行为
+# 仍由项目掌控。
 
 init 105 python:
 
@@ -13,7 +13,7 @@ init 105 python:
         )
 
     def _kkl_textbox_resolve_font(value):
-        # FontGroup and other font objects are already valid style values.
+        # FontGroup 和其他字体对象本身已是有效的样式值。
         if not isinstance(value, str):
             return value
 
@@ -83,8 +83,8 @@ init 105 python:
         }
 
 
-# Style statements are used instead of one-shot mutation so Ren'Py reapplies
-# the template after gui.rebuild(), including language changes.
+# 使用 style 语句而不是一次性修改，以便 Ren'Py 在 gui.rebuild() 后
+#（包括语言切换后）重新应用模板。
 init 110:
 
     style window:

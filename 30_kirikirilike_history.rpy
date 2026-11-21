@@ -1,22 +1,20 @@
-# KirikiriLike — self-contained History (backlog) screen
+# KirikiriLike — 独立的历史（回想）界面
 #
-# Overrides the stock `history` screen at init 999 (so it wins over the default
-# definition, which is init 0). It is fully standalone: it does NOT route
-# through `game_menu`, so it shows WITHOUT the left navigation menu / divider,
-# and needs no extra art asset (a plain dark wash over the scene background).
+# 在 init 999 覆盖自带 `history` 界面（因此会胜过默认定义，默认定义为 init 0）。
+# 它完全独立：不通过 `game_menu` 路由，因此显示时没有左侧导航菜单/分隔线，
+# 也不需要额外美术资源（只在场景背景上叠加一层纯色暗色蒙版）。
 #
-# Wheel behaviour inside History:
-#   * wheel-up  -> scrolls up into older messages (the vpgrid/viewport handles it)
-#   * wheel-down -> scrolls toward newer messages, then closes at the bottom
+# 历史内的滚轮行为：
+#   * 滚轮向上  -> 向上滚动到更早的消息（由 vpgrid/viewport 处理）
+#   * 滚轮向下 -> 滚向更新的消息，然后到底部时关闭
 #
-# To DISABLE this override and restore the stock game-menu History, delete this
-# single file.
+# 若要禁用此覆盖并恢复自带游戏菜单历史，请删除此单一文件。
 
 init 999 python:
 
     def _kkl_hs(project_style, fallback_style):
-        # Pick the project's stock style or the library's fallback style,
-        # re-evaluated each render so kkl.history_use_project_styles is live.
+        # 选择项目自带样式或库的回退样式，
+        # 每次渲染都会重新求值，因此 kkl.history_use_project_styles 可实时生效。
         return project_style if kkl.history_use_project_styles else fallback_style
 
 
@@ -36,20 +34,20 @@ init 999 screen history():
 
     tag menu
 
-    ## Avoid predicting this screen, as it can be very large.
+    ## 避免预加载此界面，因为它可能非常大。
     predict False
 
-    ## Background: the scene image (no divider) plus a dark wash. Reproduces the
-    ## stock game-menu darkening without the "gui/overlay/game_menu.png" divider.
+    ## 背景：场景图像（无分隔线）加暗色蒙版。复刻自带游戏菜单的变暗效果，
+    ## 但不使用 "gui/overlay/game_menu.png" 分隔线。
     add gui.game_menu_background
     add Solid("#000000cc")
 
-    ## Title.
+    ## 标题。
     label _("History"):
         style _kkl_hs("game_menu_label", "kkl_history_title")
 
-    ## Backlog list. The frame fills the screen (minus padding) so the
-    ## vpgrid/viewport has bounded height to scroll within.
+    ## 回想列表。frame 填满屏幕（减去内边距），使 vpgrid/viewport
+    ## 具有可滚动的有限高度。
     frame:
         style _kkl_hs("game_menu_outer_frame", "kkl_history_outer")
         background None
@@ -128,21 +126,21 @@ init 999 screen history():
                         label _("The dialogue history is empty."):
                             style _kkl_hs("history_label", "kkl_history_label")
 
-    ## Return to the game.
+    ## 返回游戏。
     textbutton _("Return"):
         style _kkl_hs("return_button", "kkl_history_return")
         action Return()
 
-    ## Wheel-down scrolls toward newer entries while more content remains, then
-    ## returns to the game on the next wheel-down at the bottom.
+    ## 滚轮向下会在仍有更多内容时滚向更新条目，然后在底部下一次
+    ## 向下滚动时返回游戏。
     if kkl.enable_wheelnav and kkl.history_closes_on_wheeldown:
         key kkl.wheel_down_key action _KKLHistoryWheelDown()
 
 
 ## ---------------------------------------------------------------------------
-## Fallback styles, used only when kkl.history_use_project_styles == False
-## (i.e. a project without the standard history_*/game_menu_* styles). They are
-## based on Ren'Py's base gui styles so they work standalone.
+## 回退样式，仅当 kkl.history_use_project_styles == False 时使用
+## （即项目没有标准 history_*/game_menu_* 样式）。它们基于 Ren'Py 的基础
+## gui 样式，因此可独立工作。
 ## ---------------------------------------------------------------------------
 
 style kkl_history_title is gui_label:
