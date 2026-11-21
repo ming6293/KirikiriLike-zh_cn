@@ -1,13 +1,12 @@
-# Third-party notices
+# 第三方声明
 
-KirikiriLike is an independent Ren'Py add-on. It is not affiliated with, sponsored by, or endorsed
-by the KiriKiri/KAG project, its authors, or the Ren'Py project.
+KirikiriLike 是独立的 Ren'Py 附加组件。它不隶属于 KiriKiri/KAG 项目、其作者或 Ren'Py 项目，
+也不受其赞助或背书。
 
 ## Ren'Py
 
-`30_kirikirilike_history.rpy` adapts the structure and conventions of the History screen generated
-by Ren'Py 8.x. Ren'Py permits use, modification, and redistribution of this material under the MIT
-License. The required permission notice is reproduced below.
+`30_kirikirilike_history.rpy` 改编了 Ren'Py 8.x 生成的历史界面的结构与约定。Ren'Py 允许在 MIT
+许可下使用、修改和再发布此材料。所需许可通知如下（不翻译此文本，以确保法律效力）。
 
 > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 > associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -24,24 +23,21 @@ License. The required permission notice is reproduced below.
 > DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
 > OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-The complete current Ren'Py licensing information is available at
-<https://www.renpy.org/doc/html/license.html>.
+Ren'Py 当前完整许可信息见
+<https://www.renpy.org/doc/html/license.html>。
 
 ## Nunito
 
-The textbox template bundles unmodified static builds of Nunito Regular and SemiBold from the
-Google Fonts repository at commit
-`c7e2740188205a85323c7385547f6f59b4f2245a`.
+文本框模板内置了来自 Google Fonts 仓库、提交为
+`c7e2740188205a85323c7385547f6f59b4f2245a` 的 Nunito Regular 与 SemiBold 未修改静态构建。
 
-Copyright 2014 The Nunito Project Authors
-(<https://github.com/googlefonts/nunito>).
+版权所有 2014 The Nunito Project Authors
+(<https://github.com/googlefonts/nunito>)。
 
-The font software is licensed under the SIL Open Font License, Version 1.1. The complete license
-is included at [fonts/Nunito-OFL.txt](fonts/Nunito-OFL.txt). Nunito is not covered by
-KirikiriLike's MIT License.
+字体软件按 SIL Open Font License, Version 1.1 许可。完整许可见
+[fonts/Nunito-OFL.txt](fonts/Nunito-OFL.txt)。Nunito 不受 KirikiriLike 的 MIT 许可覆盖。
 
-## KiriKiri and KAG
+## KiriKiri 与 KAG
 
-The names KiriKiri and KAG are used only to describe the interaction style that inspired this
-independent Ren'Py implementation. This repository contains no KiriKiri/KAG source code, artwork,
-logos, game assets, or other project files.
+KiriKiri 和 KAG 名称仅用于描述启发此独立 Ren'Py 实现的交互风格。本仓库不包含任何
+KiriKiri/KAG 源代码、美术、标志、游戏资产或其他项目文件。
